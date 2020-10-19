@@ -25,7 +25,7 @@ var KTLogin = function() {
 			KTUtil.getById('kt_login_signin_form'),
 			{
 				fields: {
-					login: {
+					username: {
 						validators: {
 							notEmpty: {
 								message: 'Username is required'
@@ -54,18 +54,17 @@ var KTLogin = function() {
 
             validation.validate().then(function(status) {
 		        if (status == 'Valid') {
-                    // swal.fire({
-		             //    text: "All is cool! Now you submit this form",
-		             //    icon: "success",
-		             //    buttonsStyling: false,
-		             //    confirmButtonText: "Ok, got it!",
-                     //    customClass: {
-    					// 	confirmButton: "btn font-weight-bold btn-light-primary"
-    					// }
-                    // }).then(function() {
-					// 	KTUtil.scrollTop();
-					// });
-                    $('#kt_login_signin_form').submit();
+                    swal.fire({
+		                text: "All is cool! Now you submit this form",
+		                icon: "success",
+		                buttonsStyling: false,
+		                confirmButtonText: "Ok, got it!",
+                        customClass: {
+    						confirmButton: "btn font-weight-bold btn-light-primary"
+    					}
+		            }).then(function() {
+						KTUtil.scrollTop();
+					});
 				} else {
 					swal.fire({
 		                text: "Sorry, looks like there are some errors detected, please try again.",
@@ -107,13 +106,6 @@ var KTLogin = function() {
 					fullname: {
 						validators: {
 							notEmpty: {
-								message: 'Fullname is required'
-							}
-						}
-					},
-					username: {
-						validators: {
-							notEmpty: {
 								message: 'Username is required'
 							}
 						}
@@ -128,14 +120,14 @@ var KTLogin = function() {
 							}
 						}
 					},
-                    password1: {
+                    password: {
                         validators: {
                             notEmpty: {
                                 message: 'The password is required'
                             }
                         }
                     },
-                    password2: {
+                    cpassword: {
                         validators: {
                             notEmpty: {
                                 message: 'The password confirmation is required'
@@ -168,18 +160,17 @@ var KTLogin = function() {
 
             validation.validate().then(function(status) {
 		        if (status == 'Valid') {
-                    // swal.fire({
-		             //    text: "All is cool! Now you submit this form",
-		             //    icon: "success",
-		             //    buttonsStyling: false,
-		             //    confirmButtonText: "Ok, got it!",
-                     //    customClass: {
-    					// 	confirmButton: "btn font-weight-bold btn-light-primary"
-    					// }
-                    // }).then(function() {
-					// 	KTUtil.scrollTop();
-					// });
-					$('#kt_login_signup_form').submit();
+                    swal.fire({
+		                text: "All is cool! Now you submit this form",
+		                icon: "success",
+		                buttonsStyling: false,
+		                confirmButtonText: "Ok, got it!",
+                        customClass: {
+    						confirmButton: "btn font-weight-bold btn-light-primary"
+    					}
+		            }).then(function() {
+						KTUtil.scrollTop();
+					});
 				} else {
 					swal.fire({
 		                text: "Sorry, looks like there are some errors detected, please try again.",
@@ -237,8 +228,7 @@ var KTLogin = function() {
             validation.validate().then(function(status) {
 		        if (status == 'Valid') {
                     // Submit form
-                    //KTUtil.scrollTop();
-                    $('#kt_login_forgot_form').submit();
+                    KTUtil.scrollTop();
 				} else {
 					swal.fire({
 		                text: "Sorry, looks like there are some errors detected, please try again.",
@@ -268,16 +258,6 @@ var KTLogin = function() {
         // public functions
         init: function() {
             _login = $('#kt_login');
-
-			var pathname = window.location.pathname;
-
-			if (pathname == '/accounts/login/') {
-				// Do Nothing
-			} else if(pathname == '/accounts/signup/') {
-				_showForm('signup');
-			} else if (pathname == '/accounts/password/reset/') {
-				_showForm('forgot');
-			}
 
             _handleSignInForm();
             _handleSignUpForm();

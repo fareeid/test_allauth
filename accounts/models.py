@@ -3,5 +3,5 @@ from django.db import models
 
 
 class CustomUser(AbstractUser):
-    pass
+    fullname = models.CharField(max_length=255, null=True, blank=True)
 
