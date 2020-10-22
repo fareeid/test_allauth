@@ -151,4 +151,5 @@ AUTHENTICATION_BACKENDS = (
 )
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # new
 
+ACCOUNT_FORMS = {'signup': 'accounts.forms.MyCustomSignupForm'}
 
